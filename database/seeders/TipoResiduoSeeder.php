@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class EstatusSeeder extends Seeder
+class TipoResiduoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,25 +15,18 @@ class EstatusSeeder extends Seeder
     {
         $data = [
             [
-                'estatus'=>'Activo'
+                'residuo'=>'Orgánico'
             ],
             [
-                'estatus'=>'Inactivo'
+                'residuo' =>'Inorgánico'
             ],
             [
-                'estatus'=>'Recibido'
+                'residuo' =>'Electrónico'
             ],
             [
-                'estatus'=>'En revisión'
-            ],
-            [
-                'estatus'=>'Asignado'
-            ],
-            [
-                'estatus'=>'Recolectado'
-            ],
-
+                'residuo' =>'Peligroso'
+            ]
         ];
-        DB::table('estatus')->insert($data);
+        DB::table('tipoResiduo')->insert($data);
     }
 }

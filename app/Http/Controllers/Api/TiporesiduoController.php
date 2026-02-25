@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Rol;
+use App\Models\Tiporesiduo;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
-class RolController extends Controller
+class TiporesiduoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(): JsonResponse
     {
-        $rols = Rol::query()->get();
+        $tiporesiduos = Tiporesiduo::query()->get();
 
         return response()->json([
             'success' => true,
-            'data' => $rols
+            'data' => $tiporesiduos
         ]);
     }
 
@@ -28,66 +28,66 @@ class RolController extends Controller
     public function store(Request $request): JsonResponse
     {
         $validated = $request->validate([
-            'rol' => 'nullable|string|max:45'
+            'residuo' => 'nullable|string|max:45'
         ]);
 
-        $rol = Rol::create($validated);
+        $tiporesiduo = Tiporesiduo::create($validated);
 
         // Cargar relaciones
         // No hay relaciones para cargar
 
         return response()->json([
             'success' => true,
-            'message' => 'Rol created successfully',
-            'data' => $rol
+            'message' => 'Tiporesiduo created successfully',
+            'data' => $tiporesiduo
         ], 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Rol $rol): JsonResponse
+    public function show(Tiporesiduo $tiporesiduo): JsonResponse
     {
         // Cargar relaciones
         // No hay relaciones para cargar
 
         return response()->json([
             'success' => true,
-            'data' => $rol
+            'data' => $tiporesiduo
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Rol $rol): JsonResponse
+    public function update(Request $request, Tiporesiduo $tiporesiduo): JsonResponse
     {
         $validated = $request->validate([
-            'rol' => 'nullable|string|max:45'
+            'residuo' => 'nullable|string|max:45'
         ]);
 
-        $rol->update($validated);
+        $tiporesiduo->update($validated);
 
         // Recargar relaciones
         // No hay relaciones para cargar
 
         return response()->json([
             'success' => true,
-            'message' => 'Rol updated successfully',
-            'data' => $rol
+            'message' => 'Tiporesiduo updated successfully',
+            'data' => $tiporesiduo
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Rol $rol): JsonResponse
+    public function destroy(Tiporesiduo $tiporesiduo): JsonResponse
     {
-        $rol->delete();
+        $tiporesiduo->delete();
 
         return response()->json([
             'success' => true,
-            'message' => 'Rol deleted successfully'
+            'message' => 'Tiporesiduo deleted successfully'
         ]);
     }
 }

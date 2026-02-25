@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Rol;
+use App\Models\Centrosreciclaje;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
-class RolController extends Controller
+class CentrosreciclajeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(): JsonResponse
     {
-        $rols = Rol::query()->get();
+        $centrosreciclajes = Centrosreciclaje::query()->get();
 
         return response()->json([
             'success' => true,
-            'data' => $rols
+            'data' => $centrosreciclajes
         ]);
     }
 
@@ -28,66 +28,68 @@ class RolController extends Controller
     public function store(Request $request): JsonResponse
     {
         $validated = $request->validate([
-            'rol' => 'nullable|string|max:45'
+            'nombre' => 'nullable|string|max:45',
+            'ubicacion' => 'nullable|string|max:60'
         ]);
 
-        $rol = Rol::create($validated);
+        $centrosreciclaje = Centrosreciclaje::create($validated);
 
         // Cargar relaciones
         // No hay relaciones para cargar
 
         return response()->json([
             'success' => true,
-            'message' => 'Rol created successfully',
-            'data' => $rol
+            'message' => 'Centrosreciclaje created successfully',
+            'data' => $centrosreciclaje
         ], 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Rol $rol): JsonResponse
+    public function show(Centrosreciclaje $centrosreciclaje): JsonResponse
     {
         // Cargar relaciones
         // No hay relaciones para cargar
 
         return response()->json([
             'success' => true,
-            'data' => $rol
+            'data' => $centrosreciclaje
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Rol $rol): JsonResponse
+    public function update(Request $request, Centrosreciclaje $centrosreciclaje): JsonResponse
     {
         $validated = $request->validate([
-            'rol' => 'nullable|string|max:45'
+            'nombre' => 'nullable|string|max:45',
+            'ubicacion' => 'nullable|string|max:60'
         ]);
 
-        $rol->update($validated);
+        $centrosreciclaje->update($validated);
 
         // Recargar relaciones
         // No hay relaciones para cargar
 
         return response()->json([
             'success' => true,
-            'message' => 'Rol updated successfully',
-            'data' => $rol
+            'message' => 'Centrosreciclaje updated successfully',
+            'data' => $centrosreciclaje
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Rol $rol): JsonResponse
+    public function destroy(Centrosreciclaje $centrosreciclaje): JsonResponse
     {
-        $rol->delete();
+        $centrosreciclaje->delete();
 
         return response()->json([
             'success' => true,
-            'message' => 'Rol deleted successfully'
+            'message' => 'Centrosreciclaje deleted successfully'
         ]);
     }
 }

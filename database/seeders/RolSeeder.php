@@ -19,7 +19,10 @@ class RolSeeder extends Seeder
             ],
             [
                 'rol' =>'Usuario'
-            ]
+            ],
+            [
+                'rol' =>'Operador'
+            ],
         ];
         DB::table('roles')->insert($data);
     }

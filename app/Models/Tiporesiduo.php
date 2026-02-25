@@ -5,22 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rol extends Model
+class Tiporesiduo extends Model
 {
     use HasFactory;
 
-    protected $table = 'roles';
+    protected $table = 'tipoResiduo';
 
     protected $fillable = [
-        'rol'
+        'residuo'
     ];
 
     protected $casts = [
         'id' => 'integer'
     ];
 
-    public function users()
+    public function reportes()
     {
-        return $this->hasMany(User::class, 'roles_id');
+        return $this->hasMany(Report::class, 'tipoResiduo_id');
     }
 }

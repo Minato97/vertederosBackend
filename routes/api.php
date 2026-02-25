@@ -1,6 +1,12 @@
 <?php
 
-use App\Http\Controllers\Api\AuthController;
+// Importar controladores
+use App\Http\Controllers\Api\ReportController;
+use App\Http\Controllers\Api\EstatusController;
+use App\Http\Controllers\Api\CentrosreciclajeController;
+use App\Http\Controllers\Api\TiporesiduoController;
+use App\Http\Controllers\Api\RolController;
+use App\Http\Controllers\Api\GuiasseparacionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -41,3 +47,14 @@ Route::group([
     Route::get('estatus', [\App\Http\Controllers\Api\EstatusController::class, 'estatus']);
     Route::post('register', [\App\Http\Controllers\Api\UsuarioController::class, 'registrar']);
     Route::post('updateUser', [\App\Http\Controllers\Api\UsuarioController::class, 'edit']);
+
+
+// Rutas API generadas automáticamente
+Route::apiResource('reportes', ReportController::class);
+Route::apiResource('estatus', EstatusController::class);
+Route::apiResource('centrosreciclaje', CentrosreciclajeController::class);
+Route::apiResource('tiporesiduo', TiporesiduoController::class);
+Route::apiResource('users', UserController::class);
+Route::apiResource('roles', RolController::class)
+    ->parameters(['roles' => 'rol']);
+Route::apiResource('guiasseparacion', GuiasseparacionController::class);

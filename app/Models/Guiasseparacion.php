@@ -5,22 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rol extends Model
+class Guiasseparacion extends Model
 {
     use HasFactory;
 
-    protected $table = 'roles';
+    protected $table = 'guiasSeparacion';
 
     protected $fillable = [
-        'rol'
+        'titulo',
+        'descripcion',
+        'manuel_PDF'
     ];
 
     protected $casts = [
         'id' => 'integer'
     ];
 
-    public function users()
-    {
-        return $this->hasMany(User::class, 'roles_id');
-    }
 }

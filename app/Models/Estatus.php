@@ -10,8 +10,19 @@ class Estatus extends Model
     use HasFactory;
 
     protected $table = 'estatus';
-    protected $fillable = ['id','estatus'];
 
+    protected $fillable = [
+        'estatus'
+    ];
+
+    protected $casts = [
+        'id' => 'integer'
+    ];
+
+    public function reportes()
+    {
+        return $this->hasMany(Report::class, 'estatus_id');
+    }
     public function users()
     {
         return $this->hasMany(User::class, 'estatus_id');
