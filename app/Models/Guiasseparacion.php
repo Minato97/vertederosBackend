@@ -14,7 +14,7 @@ class Guiasseparacion extends Model
     protected $fillable = [
         'titulo',
         'descripcion',
-        'manuel_PDF'
+        'manual_PDF'
     ];
 
     protected $casts = [

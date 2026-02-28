@@ -43,8 +43,6 @@ Route::group([
 });
 
     Route::get('usuarios', [\App\Http\Controllers\Api\UsuarioController::class, 'usuarios']);
-    Route::get('roles', [\App\Http\Controllers\Api\RolController::class, 'roles']);
-    Route::get('estatus', [\App\Http\Controllers\Api\EstatusController::class, 'estatus']);
     Route::post('register', [\App\Http\Controllers\Api\UsuarioController::class, 'registrar']);
     Route::post('updateUser', [\App\Http\Controllers\Api\UsuarioController::class, 'edit']);
 
@@ -54,7 +52,6 @@ Route::apiResource('reportes', ReportController::class);
 Route::apiResource('estatus', EstatusController::class);
 Route::apiResource('centrosreciclaje', CentrosreciclajeController::class);
 Route::apiResource('tiporesiduo', TiporesiduoController::class);
-Route::apiResource('users', UserController::class);
 Route::apiResource('roles', RolController::class)
     ->parameters(['roles' => 'rol']);
 Route::apiResource('guiasseparacion', GuiasseparacionController::class);

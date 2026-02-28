@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('titulo', 45)->nullable();
             $table->string('descripcion', 255)->nullable();
-            $table->string('manuel_PDF', 45)->nullable();
+            $table->string('manual_PDF', 45)->nullable();
 
             $table->timestamps();
         });
