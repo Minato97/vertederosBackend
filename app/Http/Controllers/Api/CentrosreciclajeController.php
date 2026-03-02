@@ -7,7 +7,7 @@ use App\Models\Centrosreciclaje;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
-class CentrosreciclajeController extends Controller
+class   CentrosreciclajeController extends Controller
 {
     /**
      * Display a listing of the resource.

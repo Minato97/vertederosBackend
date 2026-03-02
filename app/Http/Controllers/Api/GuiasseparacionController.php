@@ -30,7 +30,7 @@ class GuiasseparacionController extends Controller
         $validated = $request->validate([
             'titulo' => 'nullable|string|max:45',
             'descripcion' => 'nullable|string|max:255',
-            'manuel_PDF' => 'nullable|string|max:45'
+            'manual_PDF' => 'nullable|string|max:45'
         ]);
 
         $guiasseparacion = Guiasseparacion::create($validated);
@@ -67,7 +67,7 @@ class GuiasseparacionController extends Controller
         $validated = $request->validate([
             'titulo' => 'nullable|string|max:45',
             'descripcion' => 'nullable|string|max:255',
-            'manuel_PDF' => 'nullable|string|max:45'
+            'manual_PDF' => 'nullable|string|max:45'
         ]);
 
         $guiasseparacion->update($validated);
